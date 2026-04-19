@@ -15,14 +15,10 @@
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type"
       },
-      "dest": "api/index.js",
-      "status": 200
+      "status": 204
     },
     {
       "src": "/(.*)",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      },
       "dest": "api/index.js"
     }
   ]
