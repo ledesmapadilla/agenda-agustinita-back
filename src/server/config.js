@@ -12,13 +12,18 @@ export default class Server {
   }
 
   middleware() {
-    this.app.use(cors());
+    this.app.use(cors({
+      origin: "*",
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type"],
+    }));
+    this.app.options("*", cors());
     this.app.use(express.json());
     this.app.use(morgan("dev"));
   }
 
   listen() {
-    this.app.listen(this.port, () =>
+    this.app.listen(this.port, "::", () =>
       console.info(
         `EL SERVIDOR SE ESTA EJECUTANDO EN: http://localhost:${this.port}`.blue,
       ),
