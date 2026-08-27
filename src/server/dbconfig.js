@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import "colors";
 
 try {
-  mongoose.connect(process.env.MONGODB).then(() => {
+  mongoose.connect(process.env.MONGODB, { maxPoolSize: 5 }).then(() => {
     console.info(
       `Base de datos ${mongoose.connection.name.green} conectada exitosamente`,
     );
